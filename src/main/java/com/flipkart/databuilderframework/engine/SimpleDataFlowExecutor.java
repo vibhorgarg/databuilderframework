@@ -38,6 +38,8 @@ public class SimpleDataFlowExecutor extends DataFlowExecutor {
                                      DataBuilderFactory builderFactory) throws DataBuilderFrameworkException, DataValidationException {
         ExecutionGraph executionGraph = dataFlow.getExecutionGraph();
         DataSet dataSet = dataFlowInstance.getDataSet().accessor().copy(); //Create own copy to work with
+        // This could also be written as follows:
+        //DataSetAccessor dataSetAccessor = new DataSetAccessor( dataSet);
         DataSetAccessor dataSetAccessor = DataSet.accessor(dataSet);
         dataSetAccessor.merge(dataDelta);
         Map<String, Data> responseData = Maps.newTreeMap();
